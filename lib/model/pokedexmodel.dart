@@ -4,12 +4,13 @@
 
 import 'dart:convert';
 
-Pokemon pokemonFromJson(String str) => Pokemon.fromJson(json.decode(str));
+ListPokemon listPokemonFromJson(String str) =>
+    ListPokemon.fromJson(json.decode(str));
 
-String pokemonToJson(Pokemon data) => json.encode(data.toJson());
+String listPokemonToJson(ListPokemon data) => json.encode(data.toJson());
 
-class Pokemon {
-  Pokemon({
+class ListPokemon {
+  ListPokemon({
     this.descriptions,
     this.id,
     this.isMainSeries,
@@ -29,7 +30,7 @@ class Pokemon {
   dynamic region;
   List<dynamic> versionGroups;
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
+  factory ListPokemon.fromJson(Map<String, dynamic> json) => ListPokemon(
         descriptions: List<Description>.from(
             json["descriptions"].map((x) => Description.fromJson(x))),
         id: json["id"],
