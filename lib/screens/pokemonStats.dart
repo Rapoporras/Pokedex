@@ -1,8 +1,10 @@
+import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:pokedex/component/PokedexAppBar.dart';
+import 'package:pokedex/component/stats.dart';
 import 'package:pokedex/model/pokemonModel.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../api/api.dart';
 
 class PokemonStats extends StatefulWidget {
@@ -16,10 +18,25 @@ class PokemonStats extends StatefulWidget {
 
 class _PokemonStats extends State<PokemonStats> {
   final API api = API();
-
+  AudioPlayer audioPlayer = AudioPlayer();
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   Pokemon pokemon = new Pokemon();
+
   @override
   Widget build(BuildContext context) {
+    firestore
+        .collection('voces_pokemon')
+        .doc("PQBrt2IBpMV80vFVwxL9")
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        print("URL: " + documentSnapshot.get("2"));
+        audioPlayer.play(documentSnapshot.get(widget.idPokemon));
+      } else {
+        print('Document dont exists on the database');
+      }
+    });
+
     return Scaffold(
       appBar: PokedexAppBar(),
       body: Container(
@@ -82,96 +99,7 @@ class _PokemonStats extends State<PokemonStats> {
                                     fontFamily: "Pokemon",
                                     fontSize: 25),
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        pokemon.stats[0].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[0].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      ),
-                                      Text(
-                                        pokemon.stats[1].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[1].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      ),
-                                      Text(
-                                        pokemon.stats[2].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[2].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        pokemon.stats[3].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[3].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      ),
-                                      Text(
-                                        pokemon.stats[4].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[4].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      ),
-                                      Text(
-                                        pokemon.stats[5].stat.name
-                                                .toUpperCase() +
-                                            ": " +
-                                            pokemon.stats[5].baseStat
-                                                .toString(),
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: Color(0xFFFFFFFF),
-                                            fontFamily: "Pokemon",
-                                            fontSize: 25),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              )
+                              //  Container(child:  SimpleBarChart( , true),)
                             ],
                           ),
                         )
