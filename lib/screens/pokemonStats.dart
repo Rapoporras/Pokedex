@@ -1,10 +1,11 @@
 import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:pokedex/api/google_tts.dart';
 import 'package:pokedex/component/PokedexAppBar.dart';
-import 'package:pokedex/component/stats.dart';
 import 'package:pokedex/model/pokemonModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import '../api/api.dart';
 
 class PokemonStats extends StatefulWidget {
@@ -21,6 +22,31 @@ class _PokemonStats extends State<PokemonStats> {
   AudioPlayer audioPlayer = AudioPlayer();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   Pokemon pokemon = new Pokemon();
+  String descripcion = "";
+  String getNumber(int id) {
+    String pokemon = "";
+    if (id < 10) {
+      pokemon = "00" + id.toString();
+    } else if (id >= 10 && id < 100) {
+      pokemon = "0" + id.toString();
+    } else {
+      pokemon = id.toString();
+    }
+
+    return (pokemon);
+  }
+
+  FlutterTts flutterTts = FlutterTts();
+  Future _speak(text) async {
+    await flutterTts.setVolume(1);
+    await flutterTts.setSpeechRate(1);
+    await flutterTts.setPitch(1);
+
+    await flutterTts.awaitSpeakCompletion(true);
+    print(await flutterTts.getVoices);
+    await flutterTts.setLanguage("es-ES");
+    await flutterTts.speak(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +56,12 @@ class _PokemonStats extends State<PokemonStats> {
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
-        print("URL: " + documentSnapshot.get("2"));
-        audioPlayer.play(documentSnapshot.get(widget.idPokemon));
+        print("URL: " +
+            documentSnapshot.get(getNumber(int.parse(widget.idPokemon)))[1]);
+        descripcion =
+            documentSnapshot.get(getNumber(int.parse(widget.idPokemon)))[0];
+        audioPlayer.play(
+            documentSnapshot.get(getNumber(int.parse(widget.idPokemon)))[1]);
       } else {
         print('Document dont exists on the database');
       }
@@ -91,14 +121,39 @@ class _PokemonStats extends State<PokemonStats> {
                                     fontFamily: "Pokemon",
                                     fontSize: 25),
                               ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      "Descripción: ",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          color: Color(0xFFFFFFFF),
+                                          fontFamily: "Pokemon",
+                                          fontSize: 25),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    child: Icon(
+                                      Icons.volume_up,
+                                      size: 30,
+                                      color: Colors.white,
+                                    ),
+                                    onTap: () => playfemalevoice(
+                                      descripcion,
+                                    ),
+                                  )
+                                ],
+                              ),
                               Text(
-                                "Estadisticas: ",
+                                descripcion,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Color(0xFFFFFFFF),
                                     fontFamily: "Pokemon",
-                                    fontSize: 25),
+                                    fontSize: 20),
                               ),
+
                               //  Container(child:  SimpleBarChart( , true),)
                             ],
                           ),

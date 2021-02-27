@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pokedex-621d7",
+  "private_key_id": "cb919ad0f6e1d51ed2f7c0aede478f937d09c14e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCM+zktTYW5RwGM\njtqpIPEyqTnWjx6g3qEqRQe7/imFURLAVPZ8ezfcYiBgnI1poveYZ2VMxs7RqRSh\n1MvSIygnxZMx7DcB7O1onOONiKAm8DEOYYAUSObBVX+3M8zoBBE/ysAlPlsmKGRy\nLB2TdpXE6jx608SmB54FgoChu1N2q0GsvWjKNJTkNJrlXza9ly7+XX+2m0zpQXac\n8Z4GUbUVOM6YStH7SGdrTCHNsfpd9coTkun5lRh50v0q0ZrCoZQg+aJ9XB7NJGGV\nMFALQw1ii945ZQZLOt4BKEGocRls/CsAQGALbgt5W3el7Ihq1iTA9Xv+xPcJHrSF\nHOyHbmWvAgMBAAECggEAC00xq920uZc6muTyHHAamyARFeUf5G9/EJ9mBlOn9Rr8\nW39eybiAUDdsNwfLF6EhI2OD2GAblkJtTVJ8ta9seaZkrVzX8Ac+j438I+LES+V3\nWUVxpK6kvkeMrHKyRhXauCLDEnk+31PfnCjIhNi9xYJYL38ocCguKmzoGORRGt3I\niZj9fxNpA/ks01aSnJHsWfHelX5w5nwGPllr6kUYZ+iQjE2jjfqOXUbcHD3ktEmw\nHc/91OaM68wwOITon6AdNfBoUrj/erU2a20Q5U82SDt1inPJN0H3Mpw7OkQgmFUh\nVH0mi42vY+iQbxpojcsNeOrNEPSFC2qwJCmRgIAFgQKBgQDFGEXA911fDrWqv6tY\ndCu7aV26e95ZHc/gm78AfYDywQNynPp1LCG1LWZGXL3/h4iKPgIoIEkEbb6Mb0vM\nRBi6yJT6mlSc5nUUtCMZvN6Lco8Dlvf40BRt4Hknx5CdV/NsiBNttE+MsP5PYaI8\n7MGgEIiFNpFCodossXRGHPHfbwKBgQC3HbVGhu1cW+kX6qx6+PGm4fZOxUEEpFXK\ntcRdIZfUCIDEjuKiYPSvSzS2ZzDolptLMijONvdM7Zp1FWMGMlprWP8cQkbT3AdD\nn0ceHnBqxSLS+ObrxoX4nm4CME1hy6GBj9mi9fX01m6mcH57oDV2L5u6MVQC5A56\n/HVKfuC9wQKBgEfjco3Pq97gHqMJBhZdSRYyeF1skM0wcoIaTLCBFmd0vy0u1Kuo\nTSMoTAWeDi8F4GeL9n1sSTW0UawnbB41OE/omW5OnE4eQNYsXiElIob6Ye+NQSUf\nwFPTbF12DOlXCxKrD2sUOW+3nwqVMffG41jeruzn2lPTdSCYGTD5nb9BAoGBAJ39\n2ucUCX3zqyTAjLq5Sb6EHcEO/i8kHwV8WQVFs7r07y0oXzBc2SDZkYyDcjZro2d4\nyq5JzIuqQecdYcf57/vI2KuoH3Yx1G6q4XCCMNpeZtKCgLMTIYpGH4Jx7IIhcKLZ\n25x3/ROXY/bk/qxpqVbkcsduQh8QZ9IDOqvg1sXBAoGAFeGUhawOMQPjiG4bD4j/\nQ6TPb/ul2IEaOJh4SUOPQybhxjn7si9siFJaPJlhjopedfbawvsj5AWLkmQesv0o\nEKjFVF6REdLdsWVnusGrcjHJgxaosOJ4FUJGDpwBHo0v0cfM9edcMyvsNjWL/No2\nWe+SLfLqh+gn/GqcfjF39ss=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pokedex-621d7@appspot.gserviceaccount.com",
+  "client_id": "110910367320058482316",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pokedex-621d7%40appspot.gserviceaccount.com"
+}

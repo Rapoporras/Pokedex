@@ -39,7 +39,7 @@ class _Pokedex extends State<Pokedex> {
             ],
           ),
           child: FutureBuilder<ListPokemon>(
-              future: api.getPokedex("1"),
+              future: api.getPokedex("2"),
               builder:
                   (BuildContext context, AsyncSnapshot<ListPokemon> snapshot) {
                 if (snapshot.hasData &&
